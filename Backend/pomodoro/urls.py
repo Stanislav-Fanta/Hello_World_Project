@@ -23,8 +23,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),
-    path('add_task', add_task_view),
-    path('update_task', update_task_view),
-    path('delete_task', delete_task_view)
+    path('add_task/', add_task_view),
+    path('update_task/', update_task_view),
+    path('delete_task/', delete_task_view)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

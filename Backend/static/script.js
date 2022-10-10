@@ -32,7 +32,7 @@ function add_update_task() {
         return response.json();
     }).then(function (pk) {
         task_block.id = `task-${pk}`
-        document.querySelector("tasks").appendChild(task_block);
+        document.querySelector(".tasks").appendChild(task_block);
     });
 }
 
