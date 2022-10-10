@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tasks.views import home_view, add_task_view, delete_task_view, update_task_view
+from django.conf.urls.static import static
+from django.conf import settings
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', home_view, name='home'),
+    path('add_task', add_task_view),
+    path('update_task', update_task_view),
+    path('delete_task', delete_task_view)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

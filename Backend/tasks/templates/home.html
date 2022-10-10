@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+</head>
+<body>
+    <form method="POST" action="#">
+        {{form.as_p}}
+        <div id='sub_button'>Добавить</div>
+    </form>
+    <div class = 'tasks'>
+        {%for task in tasks%}
+            <div id = 'task-{{task.id}}'>
+                <p id = 'task_task'>{{task.task}}</p>
+                <p id = 'task_amount'>{{task.amount}}</p>
+                <p id = 'task_done'>{{task.done}}</p>
+                <button class = 'update_button' id = '{{task.id}}'>Обновить</button>
+                <button class = 'delete_button' id = '{{task.id}}'>Удалить</button>
+            </div>
+        {%endfor%}
+    </div>
+<script src="{% static 'script.js'%}"></script>
+</body>
+</html>
