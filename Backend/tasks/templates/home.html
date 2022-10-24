@@ -6,18 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
+    <style>
+        .hidden {
+            display: none
+        }
+    </style>
 </head>
 <body>
-    <form method="POST" action="#">
+
+    <div>
         {{form.as_p}}
-        <div id='sub_button'>Добавить</div>
-    </form>
+        <input class = 'hidden' id = 'id_input'>
+        <button id='sub_button'>Сохранить</button>
+        <button class='hidden' id="sub_update_button">Обновить</button>
+    </div>
     <div class = 'tasks'>
         {%for task in tasks%}
             <div id = 'task-{{task.id}}'>
                 <p id = 'task_task'>{{task.task}}</p>
                 <p id = 'task_amount'>{{task.amount}}</p>
                 <p id = 'task_done'>{{task.done}}</p>
+                <p id = 'task_status'>{{task.status}}</p>
                 <button class = 'update_button' id = '{{task.id}}'>Обновить</button>
                 <button class = 'delete_button' id = '{{task.id}}'>Удалить</button>
             </div>
